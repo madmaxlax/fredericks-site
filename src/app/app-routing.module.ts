@@ -7,6 +7,14 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
+  },
+  {
+    path: 'friends',
+    loadChildren: () => import('./friends/friends.module').then((m) => m.FriendsModule),
+  },
+  {
     path: 'products',
     loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule),
   },

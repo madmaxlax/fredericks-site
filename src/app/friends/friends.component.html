@@ -1,0 +1,21 @@
+<section class="about-section text-center" id="friends">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-white mb-4">Friends of Frederick&rsquo;s</h2>
+                <p class="text-white-50">Baltimore spots we love.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3" *ngFor="let friend of friends">
+                <a class="card py-4 h-100 friend-card" [href]="friend.url" target="_blank" rel="noopener">
+                    <div class="card-body text-center">
+                        <h5 class="text-uppercase m-0">{{ friend.name }}</h5>
+                        <hr class="my-4" />
+                        <div class="small text-black-50">{{ friend.blurb }}</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
