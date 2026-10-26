@@ -9,6 +9,9 @@
         <div class="row justify-content-center">
             <div class="col-md-4 mb-3" *ngFor="let friend of friends">
                 <a class="card py-4 h-100 friend-card" [href]="friend.url" target="_blank" rel="noopener">
+                    <div class="friend-logo">
+                        <img [src]="friend.logo" [alt]="friend.name + ' logo'" loading="lazy" />
+                    </div>
                     <div class="card-body text-center">
                         <h5 class="text-uppercase m-0">{{ friend.name }}</h5>
                         <hr class="my-4" />
