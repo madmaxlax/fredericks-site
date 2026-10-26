@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles. Loaded after assets/grayscale/css/styles.css, so these override the theme. */
+
+// Scroll reveal, driven by the appReveal directive.
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.65, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 0.9s cubic-bezier(0.2, 0.65, 0.3, 1) var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+// Blend section seams into black so photos do not start on a hard line.
+.about-section {
+  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.92) 70%, #000 100%);
+}
+.signup-section {
+  background-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.35) 22%, rgba(0, 0, 0, 0.55) 75%, #000 100%),
+    url('/assets/grayscale/img/fred-struever-grayscale.webp');
+}
+.contact-section {
+  background-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.2) 22%, rgba(0, 0, 0, 0.5) 75%, #000 100%),
+    url('/assets/grayscale/img/fred-flag.webp');
+}
+
+// Faint film grain over the whole site, in keeping with the grayscale photos.
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

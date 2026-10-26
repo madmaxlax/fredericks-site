@@ -1,14 +1,35 @@
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
-            <img src="../../assets/grayscale/img/fredericks-logo-white.webp" width="498" height="375"
-                class="img-fluid mx-auto d-block" alt="Fredericks Logo" style="margin-top: -50px;">
-            <h1 class="mx-auto my-0 text-uppercase">Artifacts and Salvage</h1>
-            <h2 class="text-white-50 mx-auto mt-2 mb-5">Reclaimed industrial goods, antiques, and architectural salvage
-                collected over
-                a career in
-                construction and historic building renovation.</h2>
-            <a class="btn btn-primary js-scroll-trigger" [routerLink]="['/products']">View a Sample of Our Stock</a>
+            <div class="emblem" role="img" aria-label="Frederick's of Baltimore logo">
+                <svg class="emblem-gear" viewBox="0 0 498 375" aria-hidden="true" focusable="false">
+                    <defs>
+                        <linearGradient id="gearFade" gradientUnits="userSpaceOnUse" x1="0" y1="30" x2="0" y2="410">
+                            <stop offset="0" stop-color="#fff" />
+                            <stop offset="0.45" stop-color="#fff" />
+                            <stop offset="0.62" stop-color="#fff" stop-opacity="0.16" />
+                            <stop offset="1" stop-color="#fff" stop-opacity="0.06" />
+                        </linearGradient>
+                        <mask id="gearMask" maskUnits="userSpaceOnUse" x="0" y="0" width="498" height="420">
+                            <rect width="498" height="420" fill="url(#gearFade)" />
+                        </mask>
+                    </defs>
+                    <g mask="url(#gearMask)">
+                        <g class="gear-spin">
+                            <path class="gear-outline"
+                                d="M225.0 67.6 L225.0 35.5 L282.0 35.5 L282.0 67.6 A156 156 0 0 1 341.8 92.4 L364.5 69.7 L404.8 110.0 L382.1 132.7 A156 156 0 0 1 406.9 192.5 L439.0 192.5 L439.0 249.5 L406.9 249.5 A156 156 0 0 1 382.1 309.3 L404.8 332.0 L364.5 372.3 L341.8 349.6 A156 156 0 0 1 282.0 374.4 L282.0 406.5 L225.0 406.5 L225.0 374.4 A156 156 0 0 1 165.2 349.6 L142.5 372.3 L102.2 332.0 L124.9 309.3 A156 156 0 0 1 100.1 249.5 L68.0 249.5 L68.0 192.5 L100.1 192.5 A156 156 0 0 1 124.9 132.7 L102.2 110.0 L142.5 69.7 L165.2 92.4 A156 156 0 0 1 225.0 67.6Z" />
+                            <circle class="gear-ring" cx="253.5" cy="221" r="113.5" />
+                        </g>
+                    </g>
+                </svg>
+                <img class="emblem-text" src="assets/grayscale/img/fredericks-logo-text.webp" width="498" height="375"
+                    alt="" />
+            </div>
+            <h1 class="mx-auto my-0 text-uppercase hero-step hero-step-1">Artifacts and Salvage</h1>
+            <h2 class="text-white-50 mx-auto mt-2 mb-5 hero-step hero-step-2">Reclaimed industrial goods, antiques, and
+                architectural salvage collected over a career in construction and historic building renovation.</h2>
+            <a class="btn btn-primary js-scroll-trigger hero-step hero-step-3" [routerLink]="['/products']">View a Sample
+                of Our Stock</a>
         </div>
     </div>
 </header>

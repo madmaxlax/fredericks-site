@@ -1,0 +1,119 @@
+// The emblem layers a full SVG gear behind the logo's hammer and lettering.
+// Both share the original logo's 498x375 canvas so they line up exactly.
+.emblem {
+  position: relative;
+  width: min(498px, 100%);
+  aspect-ratio: 498 / 375;
+  margin: -50px auto 0;
+}
+
+.emblem-gear,
+.emblem-text {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.emblem-gear {
+  overflow: visible;
+  filter: drop-shadow(0 0 0.6px rgba(146, 113, 179, 0.9));
+  animation: gear-appear 1.4s ease-out both;
+}
+
+.gear-outline,
+.gear-ring {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+.gear-outline {
+  stroke-width: 6;
+}
+
+.gear-ring {
+  stroke-width: 3.5;
+}
+
+.gear-spin {
+  transform-box: view-box;
+  transform-origin: 253.5px 221px;
+  animation: gear-wind 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both, gear-turn 150s linear 2.4s infinite;
+}
+
+.emblem-text {
+  animation: lettering-in 1.3s cubic-bezier(0.2, 0.65, 0.3, 1) 0.9s both;
+}
+
+.hero-step {
+  animation: rise-in 1s cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+.hero-step-1 {
+  animation-delay: 1.6s;
+}
+.hero-step-2 {
+  animation-delay: 1.9s;
+}
+.hero-step-3 {
+  animation-delay: 2.2s;
+}
+
+@keyframes gear-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes gear-wind {
+  from {
+    transform: rotate(-70deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes gear-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lettering-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emblem-gear,
+  .gear-spin,
+  .emblem-text,
+  .hero-step {
+    animation: none;
+  }
+}
