@@ -12,6 +12,12 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Friends of Frederick's Page -->
+  <url>
+    <loc>https://fredericks.studio/friends</loc>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Artifacts (Products) Page -->
   <url>
     <loc>https://fredericks.studio/products</loc>

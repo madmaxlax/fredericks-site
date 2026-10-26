@@ -1,0 +1,22 @@
+.friend-card {
+  text-decoration: none;
+  transition: transform 0.15s ease-in-out;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.friend-logo {
+  height: 120px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
