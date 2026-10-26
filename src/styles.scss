@@ -1,5 +1,15 @@
 /* Global styles. Loaded after assets/grayscale/css/styles.css, so these override the theme. */
 
+// The theme leaves the page white. Every section is dark, so make the page dark too.
+// Stops white showing through at fractional zoom levels and on overscroll.
+html,
+body {
+  background-color: #000;
+}
+html {
+  color-scheme: dark;
+}
+
 // Scroll reveal, driven by the appReveal directive.
 .reveal {
   opacity: 0;
