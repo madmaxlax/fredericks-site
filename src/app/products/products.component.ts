@@ -10,6 +10,7 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   isFetching = true;
   searchQuery = '';
+  readonly skeletons = Array.from({ length: 6 });
 
   constructor(private productsService: ProductsService) {}
 
@@ -19,5 +20,11 @@ export class ProductsComponent implements OnInit {
       this.products = products;
       this.isFetching = false;
     });
+  }
+
+  clearSearch(input: HTMLInputElement): void {
+    this.searchQuery = '';
+    input.value = '';
+    input.focus();
   }
 }

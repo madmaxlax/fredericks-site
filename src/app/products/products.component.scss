@@ -1,4 +1,5 @@
 .products-section {
+  overflow-x: clip;
   background: linear-gradient(
     to bottom,
     #000000 0%,
@@ -8,21 +9,184 @@
 }
 
 .sticky-search {
-  position: -webkit-sticky; /* For Safari */
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 1000; /* Ensure it stays above other content */
-  padding: 90px 0 10px 0; /* Optional: to add some padding */
-  background-color: black;
+  z-index: 1000;
+  padding: 90px 0 14px 0;
+
+  // Full-width backdrop that fades into the grid instead of ending on a hard line.
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: -48px;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, #000 0, #000 calc(100% - 48px), transparent 100%);
+    pointer-events: none;
+  }
 }
-.input-group-append .input-group-text {
-  background-color: white;
-  border: none;
-  cursor: default;
+
+.search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+  transition: border-color 0.25s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: -2px;
+    height: 2px;
+    background: var(--primary);
+    transition: left 0.35s ease, right 0.35s ease;
+  }
+
+  &:focus-within::after {
+    left: 0;
+    right: 0;
+  }
+
+  &.is-disabled {
+    opacity: 0.6;
+  }
 }
-.spinner {
-  padding-top: 150px;
+
+.search-icon {
+  color: rgba(255, 255, 255, 0.45);
+  padding: 0 0.75rem 0 0.25rem;
+  transition: color 0.25s ease;
+
+  .search-field:focus-within & {
+    color: var(--primary);
+  }
 }
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.85rem 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font-family: 'Arvo', serif;
+  font-size: 1rem;
+  letter-spacing: 0.12rem;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.25rem;
+  }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+}
+
+.search-clear {
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+  }
+}
+
+.search-meta {
+  margin-top: 0.6rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Arvo', serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.skeleton-card {
+  pointer-events: none;
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+}
+
+.skeleton {
+  display: block;
+  background: linear-gradient(90deg, #3a3f44 0%, #4a5056 40%, #3a3f44 80%);
+  background-size: 300% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.skeleton-image {
+  height: 200px;
+}
+
+.skeleton-line {
+  height: 0.7rem;
+  width: 85%;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  height: 1.1rem;
+  width: 60%;
+  margin-bottom: 0.4rem;
+}
+
+.skeleton-short {
+  width: 55%;
+}
+
+.skeleton-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 0.6rem;
+}
+
+.skeleton-pill {
+  width: 3.5rem;
+  height: 1.2rem;
+  border-radius: 12px;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
+
+.empty-search {
+  padding: 4rem 0 8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 a:hover {
   text-decoration: none;
 }
