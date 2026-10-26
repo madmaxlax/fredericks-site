@@ -22,6 +22,12 @@ export class FriendsComponent {
         'Design, engineering, and fabrication studio working out of the old Poole and Hunt foundry at Clipper Mill.',
     },
     {
+      name: 'Anything Wood & Metal',
+      url: 'https://www.anythingwoodandmetal.com',
+      logo: 'assets/friends/anything-wood-and-metal.webp',
+      blurb: 'Custom wood and metal furniture, built in Baltimore since 1999.',
+    },
+    {
       name: 'Corradetti Glass',
       url: 'https://corradetti.com',
       logo: 'assets/friends/corradetti-glass.webp',
